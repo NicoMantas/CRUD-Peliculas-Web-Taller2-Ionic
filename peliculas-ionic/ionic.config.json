@@ -1,0 +1,7 @@
+{
+  "name": "peliculas-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
