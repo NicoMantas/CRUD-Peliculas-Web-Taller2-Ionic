@@ -1,0 +1,171 @@
+### Variables
+@baseUrl = http://localhost:3000
+
+###Peliculas CRUD
+
+
+### 1. Crear una Pelicula Nueva
+POST {{baseUrl}}/pelicula
+Content-Type: application/json
+
+{
+    "nombre": "Maze Runner: Prueba de Fuego",
+    "sinopsis": "Sinopsis: Thomas y sus amigos enfrentan nuevos desafios en su travesia que les esperara?",
+    "imagen": "https://play-lh.googleusercontent.com/oPm2Oh-hS_mnPRB69V8frTP8_uxX6cT5eVwBvVz2LBJjTnWZfiIB89T-1pvvWZSNSHuA"
+}
+
+### 2. Crear Pelicula 2
+POST {{baseUrl}}/pelicula
+Content-Type: application/json
+
+{
+    "nombre": "Maze Runner: El laberinto",
+    "sinopsis": "Sinopsis: Thomas y sus amigos enfrentan nuevos desafios en su travesia que les esperara en el laberinto?",
+    "imagen": "https://es.web.img3.acsta.net/c_310_420/pictures/14/07/31/11/02/134907.jpg"
+}
+
+### 3. Crear Pelicula 3
+POST {{baseUrl}}/pelicula
+Content-Type: application/json
+
+{
+    "nombre": "Inception",
+    "sinopsis": "Un ladrón que roba secretos a través de los sueños se enfrenta a una misión imposible.",
+    "imagen": "https://m.media-amazon.com/images/M/MV5BZjhkNjM0ZTMtNGM5MC00ZTQ3LTk3YmYtZTkzYzdiNWE0ZTA2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+}
+
+### 4. Crear Pelicula 4
+POST {{baseUrl}}/pelicula
+Content-Type: application/json
+
+{
+    "nombre": "Interstellar",
+    "sinopsis": "Un explorador espacial atraviesa un agujero de gusano para salvar a la humanidad.",
+    "imagen": "https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+}
+
+### 5. Crear Pelicula 5
+POST {{baseUrl}}/pelicula
+Content-Type: application/json
+
+{
+    "nombre": "Dune",
+    "sinopsis": "En un desierto peligroso, un joven hereda un destino que cambiará el universo.",
+    "imagen": "https://m.media-amazon.com/images/M/MV5BYjk1NjgwZDMtYzI5OS00Y2Q4LWI1NmItNTE5OGU2NDVmMTAxXkEyXkFqcGc@._V1_.jpg"
+}
+
+### 6. Crear Pelicula 6
+POST {{baseUrl}}/pelicula
+Content-Type: application/json
+
+{
+    "nombre": "The Matrix",
+    "sinopsis": "Un hacker descubre que la realidad es una simulación creada por máquinas.",
+    "imagen": "https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc@._V1_.jpg"
+}
+
+### 7. Crear Pelicula 7
+POST {{baseUrl}}/pelicula
+Content-Type: application/json
+
+{
+    "nombre": "Avatar",
+    "sinopsis": "Un marine parapléjico se convierte en un héroe en un planeta alienígena.",
+    "imagen": "https://static.wikia.nocookie.net/james-camerons-avatar/images/a/a7/Caratula_de_Avatar.png/revision/latest?cb=20150218032222&path-prefix=es"
+}
+
+### 8. Crear Pelicula 8
+POST {{baseUrl}}/pelicula
+Content-Type: application/json
+
+{
+    "nombre": "Jurassic Park",
+    "sinopsis": "Un parque temático con dinosaurios revive un sueño que termina en caos.",
+    "imagen": "https://m.media-amazon.com/images/I/81AGqBcpYOL._AC_UF894,1000_QL80_.jpg"
+}
+
+### 9. Crear Pelicula 9
+POST {{baseUrl}}/pelicula
+Content-Type: application/json
+
+{
+    "nombre": "Shrek",
+    "sinopsis": "Un ogro solitario debe rescatar a una princesa y salvar su hogar.",
+    "imagen": "https://static.wikia.nocookie.net/doblaje/images/6/69/Shrekban.png/revision/latest?cb=20200731225428&path-prefix=es"
+}
+
+### 10. Crear Pelicula 10
+POST {{baseUrl}}/pelicula
+Content-Type: application/json
+
+{
+    "nombre": "Toy Story",
+    "sinopsis": "Los juguetes cobran vida cuando el humano no está mirando y vive una aventura.",
+    "imagen": "https://m.media-amazon.com/images/M/MV5BZTA3OWVjOWItNjE1NS00NzZiLWE1MjgtZDZhMWI1ZTlkNzYwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+}
+
+### 11. Crear Pelicula 11
+POST {{baseUrl}}/pelicula
+Content-Type: application/json
+
+{
+    "nombre": "Spirited Away",
+    "sinopsis": "Una niña entra en un mundo mágico donde debe aprender a sobrevivir y crecer.",
+    "imagen": "https://m.media-amazon.com/images/M/MV5BNTEyNmEwOWUtYzkyOC00ZTQ4LTllZmUtMjk0Y2YwOGUzYjRiXkEyXkFqcGc@._V1_.jpg"
+}
+
+### 12. Crear Pelicula 12
+POST {{baseUrl}}/pelicula
+Content-Type: application/json
+
+{
+    "nombre": "Coco",
+    "sinopsis": "Un joven descubre la historia de su familia a través de la música y la memoria.",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBA47aC-q1I7TGYANnv4oaQ0sKAyuA-BhjnfRmSAjWc5MdohUFAxfW5lmt&s=10"
+}
+
+### 12. Crear Pelicula 12
+POST {{baseUrl}}/pelicula
+Content-Type: application/json
+
+{
+    "nombre": "Spider",
+    "sinopsis": "A medida que las exigencias a las que se ve sometido Spider-Man se intensifican, la presión desencadena una sorprendente evolución física que pone en peligro su existencia.",
+    "imagen": "https://m.media-amazon.com/images/M/MV5BZjJhYjA3NzMtMWExNC00OTMwLWIyY2YtOGIzODhlYWI0ZWY1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+}
+
+### 13. Obtener una Pelicula por ID
+GET {{baseUrl}}/pelicula/1
+
+
+### 3. Obtener todas las Peliculas
+GET {{baseUrl}}/pelicula
+
+
+### 4. Actualizar una Pelicula por ID
+PATCH {{baseUrl}}/pelicula/1
+Content-Type: application/json
+
+{
+    "imagen": "https://static.wikia.nocookie.net/mazerunner/images/0/08/P%C3%B3ster_de_Prueba_de_Fuego.png/revision/latest?cb=20150519191652&path-prefix=es"
+}
+
+### 5. Eliminar una Pelicula 
+DELETE {{baseUrl}}/pelicula/2
+
+### Busqueda y PAginacion de Peliculas
+
+### 6. Todas - Pagina 1
+GET {{baseUrl}}/pelicula?pagina=1&limite=5
+
+
+### Todas - página 2
+GET {{baseUrl}}/pelicula?pagina=2&limite=5
+
+
+### Buscar por nombre
+GET {{baseUrl}}/pelicula?nombre=dune
+
+
+### Buscar + página
+GET {{baseUrl}}/pelicula?nombre=Maze&page=1&limit=5
