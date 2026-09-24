@@ -5,14 +5,41 @@ import "dotenv/config";
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  const allowedOrigins: string[] = (process.env.FRONTEND_URL ?? '')
-    .split(',')
-    .map((origin: string) => origin.trim())
-    .filter(Boolean);
+  const defaultAllowedOrigins = [
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'http://localhost:8100',
+    'http://127.0.0.1:8100',
+    'capacitor://localhost',
+    'http://localhost',
+    'http://127.0.0.1',
+  ];
+
+  const allowedOrigins: string[] = [
+    ...new Set([
+      ...defaultAllowedOrigins,
+      ...(process.env.FRONTEND_URL ?? '')
+        .split(',')
+        .map((origin: string) => origin.trim())
+        .filter(Boolean),
+    ]),
+  ];
 
   app.enableCors({
     origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
       if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      const isLocalIonicOrigin =
+        origin.startsWith('http://localhost:') ||
+        origin.startsWith('http://127.0.0.1:') ||
+        origin.startsWith('capacitor://') ||
+        origin.startsWith('http://localhost') ||
+        origin.startsWith('http://127.0.0.1');
+
+      if (isLocalIonicOrigin) {
         callback(null, true);
         return;
       }
