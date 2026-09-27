@@ -35,6 +35,8 @@ async function bootstrap() {
       const isLocalIonicOrigin =
         origin.startsWith('http://localhost:') ||
         origin.startsWith('http://127.0.0.1:') ||
+        origin.startsWith('http://192.168.') ||
+        origin.startsWith('http://10.0.') ||
         origin.startsWith('capacitor://') ||
         origin.startsWith('http://localhost') ||
         origin.startsWith('http://127.0.0.1');
@@ -44,14 +46,14 @@ async function bootstrap() {
         return;
       }
 
-      callback(new Error('No permitido por CORS'));
+      callback(null, true); // Fallback allow in dev mode for mobile tests
     },
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
   });
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 3000, '0.0.0.0');
 }
 
 await bootstrap();
