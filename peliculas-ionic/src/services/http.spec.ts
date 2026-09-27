@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { Preferences } from '@capacitor/preferences';
-import { apiFetch, clearToken, getToken, setToken } from './http';
+import { apiFetch, clearToken, getApiBaseUrl, getToken, setToken } from './http';
 
 vi.mock('@capacitor/preferences', () => ({
   Preferences: {
@@ -54,6 +54,30 @@ describe('http auth utilities', () => {
     );
 
     vi.unstubAllGlobals();
+  });
+
+  it('uses the Android emulator host when running in a native app', () => {
+    const originalLocation = window.location;
+    Object.defineProperty(window, 'location', {
+      value: { hostname: 'localhost', protocol: 'capacitor:' },
+      writable: true,
+    });
+
+    Object.defineProperty(window, 'Capacitor', {
+      value: { isNativePlatform: () => true },
+      writable: true,
+    });
+
+    expect(getApiBaseUrl()).toBe('http://10.0.2.2:3000');
+
+    Object.defineProperty(window, 'location', {
+      value: originalLocation,
+      writable: true,
+    });
+    Object.defineProperty(window, 'Capacitor', {
+      value: undefined,
+      writable: true,
+    });
   });
 
   it('clears the JWT token when logout is requested', async () => {

@@ -90,10 +90,20 @@ const modalAbierto = ref(false);
 const peliculaSeleccionada = ref<Pelicula | null>(null);
 
 async function cargarPagina(nuevaPagina: number, reemplazar: boolean) {
-  const respuesta = await fetchPeliculas(busqueda.value, nuevaPagina, LIMITE);
-  peliculas.value = reemplazar ? respuesta.data : [...peliculas.value, ...respuesta.data];
-  pagina.value = respuesta.meta.pagina;
-  totalPaginas.value = respuesta.meta.totalPaginas;
+  try {
+    const respuesta = await fetchPeliculas(busqueda.value, nuevaPagina, LIMITE);
+    peliculas.value = reemplazar ? respuesta.data : [...peliculas.value, ...respuesta.data];
+    pagina.value = respuesta.meta.pagina;
+    totalPaginas.value = respuesta.meta.totalPaginas;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Error al cargar películas.';
+    const alert = await alertController.create({
+      header: 'Error de conexión',
+      message,
+      buttons: ['Aceptar'],
+    });
+    await alert.present();
+  }
 }
 
 onMounted(() => cargarPagina(1, true));
