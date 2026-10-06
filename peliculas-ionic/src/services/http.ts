@@ -2,7 +2,22 @@ import { Preferences } from '@capacitor/preferences';
 
 export function getApiBaseUrl(): string {
   const configuredUrl = import.meta.env.VITE_API_URL;
-  if (configuredUrl) return configuredUrl;
+  if (configuredUrl) return configuredUrl.replace(/\/$/, '');
+
+  const hostname = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
+
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return 'http://localhost:3000';
+  }
+
+  if (
+    hostname.startsWith('192.168.') ||
+    hostname.startsWith('10.') ||
+    hostname.startsWith('172.') ||
+    hostname === '10.0.2.2'
+  ) {
+    return `http://${hostname}:3000`;
+  }
 
   return 'http://localhost:3000';
 }
